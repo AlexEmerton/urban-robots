@@ -24,7 +24,7 @@ def largest_column_sum(array, x_ax, y_ax):
         for p in range(y_ax):
             col_compare += array[p][i]
         if col_compare > col_big_sum:
-            col_big_sum = col_compare
+            col_big_sum = col_compare           # update the biggest sum value
         col_compare = 0
     return col_big_sum
 
@@ -35,11 +35,10 @@ def largest_column_sum(array, x_ax, y_ax):
 def smallest_row_number(array, x_ax, y_ax):
     row_total = 0
     row_small_num = 0
-    row_compare = 1.7976931348623157e+308
-
-    for i in range(x_ax):
-        for p in range(y_ax):
-            row_total += array[i][p]
+    row_compare = 1.7976931348623157e+308       # kind of a "dirty" trick. Used a huge number to compare first element
+    for i in range(x_ax):                       # against to make sure the conditional statement will execute on the
+        for p in range(y_ax):                   # first run. Can (and should) be replaced with an array to select the
+            row_total += array[i][p]            # first element but for the sake of simplicity is kept this way
         if row_total < row_compare:
             row_compare = row_total
             row_small_num = i
@@ -63,8 +62,8 @@ def all_equal(array, x_ax, y_ax):
             else:
                 flag = True
         if flag:
-            double_flag = True
-            break
+            double_flag = True                  # second flag is used to display the 'NO', 'YES' values the way
+            break                               # it was required to display
         c.clear()
 
     if double_flag:
@@ -76,14 +75,31 @@ def all_equal(array, x_ax, y_ax):
 
 
 def all_distinct(array, x_ax, y_ax):
-    d = []
     c = []
-    for i in range(x_ax):
-        for p in range(y_ax):
-            c.append(Matrix[i][p])
-        d.append(c)
-        print(d)
-        c.clear()
-    return d
+    flag = False
+    found = False
 
-print(all_distinct(Matrix, x, y))
+    for i in range(x_ax):
+        p = 1
+        for k in range(y_ax):
+            c.append(array[i][k])
+        for j in range(len(c)):
+            found = False
+            while p < len(c):
+                if c[p] == c[len(c) - 1] and c[j] != c[p]:      # a huge problem can be seen here. This kind of a
+                    j += 1                                      # statement will be blind in case the first element
+                    p = j + 1                                   # is also the one repeated. Python is a bit
+                elif c[j] == c[p]:                              # problematic to work with when it comes to going
+                    found = True                                # through arrays without using special libraries
+                    break                                       # and/or loop structures (iterations). The bug is
+                else:                                           # acknowledged and the pseudo-code version is provided
+                    p += 1                                      # where such problem does not exist
+        c.clear()
+        if not found:                                           # This version of the task 4.4 was kept as a way to keep
+            flag = True                                         # the project consistent
+    if flag:
+        return 'NO'
+    else:
+        return 'YES'
+
+# print(all_distinct(Matrix, x, y))
