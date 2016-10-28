@@ -6,16 +6,14 @@ c = 1
 
 
 def is_pair(array, ind1, ind2, diff):   # returns True if the pair of numbers with a certain difference exists
-    if abs(array[ind1] - array[ind2]) == diff or \
-            ((array[ind1] < 0 or array[ind2] < 0) and (abs(array[ind1]) + abs(array[ind2]) == diff)):
-        # set of rules for identifying the difference between both positive and negative numbers
+    if abs(array[ind1] - array[ind2]) == diff:
         return True
     else:
         return False
 
 while b < (len(A)) and c < (len(A)):    # go through all elements of array A
     if A[c] == A[len(A)-1] and is_pair(A, b, c, R) == False:    # check if at the last pair of elements in array
-        b += 1                                                  # if its not the pair required increase both
+        b += 1                                                  # if its not the pair increase both / 
         c = b + 1                                               # index one (b) and index two (c)
     elif is_pair(A, b, c, R):                                   # check if the pair is right
         B.append([A[b], A[c]])                                  # add to array if it is
