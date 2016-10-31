@@ -1,4 +1,4 @@
-A = [-100, -60, -40, -10, -1, 0, 10, 19, 30, 40, 50, 70, 90, 100]
+A = [-100, -60, -40, -10, -19, -1, 0, 10, 19, 30, 40, 50, 70, 90, 100]
 B = []
 R = 20
 b = 0
@@ -7,7 +7,7 @@ c = 1
 
 def is_pair(array, ind1, ind2, diff):   # returns True if the pair of numbers with a certain difference exists
     if abs(array[ind1] - array[ind2]) == diff or \
-            ((array[ind1] < 0 or array[ind2] < 0) and (abs(array[ind1]) + abs(array[ind2]) == diff)):
+            (((array[ind1] < 0 and array[ind2] > 0) or array[ind2] < 0 and array[ind1] > 0) and (abs(array[ind1]) + abs(array[ind2]) == diff)):
         return True
     else:
         return False
