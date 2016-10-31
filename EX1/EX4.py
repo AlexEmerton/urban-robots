@@ -84,7 +84,6 @@ def all_distinct(array, x_ax, y_ax):
         for k in range(y_ax):
             c.append(array[i][k])
         for j in range(len(c)):
-            found = False
             while p < len(c):
                 if c[p] == c[len(c) - 1] and c[j] != c[p]:      # a huge problem can be seen here. This kind of a
                     j += 1                                      # statement will be blind in case the first element
@@ -95,8 +94,9 @@ def all_distinct(array, x_ax, y_ax):
                 else:                                           # acknowledged and the pseudo-code version is provided
                     p += 1                                      # where such problem does not exist
         c.clear()
-        if not found:                                           # This version of the task 4.4 was kept as a way to keep
-            flag = True                                         # the project consistent
+        if found:                                               # This version of the task 4.4 was kept as a way to keep
+            flag = True
+            break                                               # the project consistent
     if flag:
         return 'NO'
     else:
