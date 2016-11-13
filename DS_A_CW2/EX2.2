@@ -1,0 +1,14 @@
+returned_value = null
+C = []
+CurEl_A = FirstEl(A)
+CurEl_B = FirstEl(B)
+
+while CurEl_A != null and CurEl_B != null:
+    if CurEl_A.content == CurEL_B.content:
+        C.append(CurEl_A.content)
+        CurEl_A = CurEl_A.next
+        CurEl_B = CurEl_B.next
+    elif CurEl_A.content < CurEl_A.content:
+        CurEl_A = CurEl_A.next
+    else:
+        CurEl_B = CurEl_B.next
