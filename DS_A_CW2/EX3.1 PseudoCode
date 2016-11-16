@@ -2,7 +2,7 @@ List_1 = first linked list
 List_2 = empty new linked list
 stack_1 = new_stack()
 
-def to_stack():
+def stack_reverse():
   CurEl = FirstEl(List_1)
   while CurEl != NULL:
     stack_1.push(CurEl)
