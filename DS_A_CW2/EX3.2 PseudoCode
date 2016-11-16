@@ -1,0 +1,31 @@
+def reverse():
+  PreEl = NULL
+  CurEl = FirstEl
+  while CurEl != NULL:
+    NextEl = CurEl.next
+    CurEl.next = PreEl
+    PreEl = CurEl
+    CurEl = NextEl
+  FirstEl = PreEl
+  
+# Test
+linked_list = LinkedList()
+linked_list.add(112)
+linked_list.add(98)
+linked_list.add(66)
+
+linked_list.print_l()
+linked_list.reverse()
+print("--------")
+linked_list.print_l()
+
+Output: 
+
+66
+98
+112
+--------
+112
+98
+66
+
