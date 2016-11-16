@@ -1,0 +1,17 @@
+List_1 = first linked list
+List_2 = empty new linked list
+stack_1 = new_stack()
+
+def to_stack():
+  CurEl = FirstEl(List_1)
+  while CurEl != NULL:
+    stack_1.push(CurEl)
+    CurEl = CurEl.next
+  
+  CurEl = stack_1.pop()
+  FirstEl(List_2) = CurEl
+
+  while (!stack_1.IsEmpty()):
+    CurEl.next =  stack_1.pop()
+    CurEl = CurEl.next
+  CurEl.next = NULL
