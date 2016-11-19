@@ -1,0 +1,40 @@
+// Union of linked lists
+
+A = linked list 1
+B = linked list 2
+C = empty linked list
+
+i = 0
+p = 0
+o = 0
+
+tot_len = length(A) + length(B)
+
+CurEl_A = FirstEl(A)
+CurEl_B = FirstEl(B)
+
+while length(C) != tot_len:
+  if length(A) == i:
+    Add all remaining elements of B to C
+  elif length(B) == p:
+    Add all remaining elements of A to C
+  elif CurEl_A < CurEl_B:
+    Add CurEl_A.content to C
+    CurEl_A = CurEl_A.next
+    i += 1
+  else:
+    Add CurEl_B.content to C
+    CurEl_B = CurEl_B.next
+    p += 1
+
+CurEl_C = FirstEl(C)
+
+while o < len(C)-1:
+  if CurEl_C == CurEl_C.next:
+    Remove CurEl_C.next and relink the linked list
+  else:
+    CurEl_C = CurEl_C.next
+    o += 1
+    
+    
+
