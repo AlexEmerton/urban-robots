@@ -1,0 +1,30 @@
+A = [1, 2, 5, 7]
+B = [2, 5, 10]
+
+C = []
+
+i = 0
+p = 0
+
+tot_len = len(A) + len(B)
+while len(C) != total:
+    if len(A) == i:
+        C += B[j:]
+    elif len(B) == j:
+        C += A[i:]
+    elif A[i] < B[j]:
+        C.append(A[i])
+        i += 1
+    else:
+        C.append(B[j])
+        j += 1
+        
+o = 0
+
+while o < len(C)-1:
+    if C[o] == C[o+1]:
+        C.remove(C[o+1])
+    else:
+        o += 1
+
+print(C)
