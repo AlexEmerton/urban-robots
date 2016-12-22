@@ -1,0 +1,18 @@
+List_1 = Empty array
+Queue_1 = Empty queue
+
+class TreeNode:
+  int content
+  TreeNode LeftChild
+  TreeNode RightChild
+  TreeNode(content,LeftChild,RightChild)
+  
+
+function in_order(tree):
+  if tree != null:
+    in_order(tree.LeftChild)
+    enqueue(tree.content)
+    in_order(tree.RightChild)
+    
+while(!Queue_1.IsEmpty()):
+  List_1.add(Queue_1.dequeue())
