@@ -1,0 +1,29 @@
+A = Array filled with elements
+
+class TreeNode:
+  int content
+  TreeNode LeftChild
+  TreeNode RightChild
+  TreeNode(content,LeftChild,RightChild)
+    
+// Sorting the binary tree
+function fill_tree(tree, element):
+    if element == tree.content:
+      pass                            // i.e. Do nothing!
+    elif element < tree.content:
+      if tree.LeftChild == null:
+        tree.insert(element)
+      else:
+        fill_tree(tree.LeftChild, element)
+     elif element > tree.content:
+      if tree.RightChild == null:
+        tree.insert(element)
+      else:
+        fill_tree(tree.RightChild, element)
+        
+// Filling the array with sorted elements
+function in_order(tree):
+  if tree != null:
+    in_order(tree.LeftChild)
+    A.add(tree.content)
+    in_order(tree.RightChild)
